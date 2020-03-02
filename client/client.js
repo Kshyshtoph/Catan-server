@@ -20,7 +20,7 @@ socket.addEventListener("globals updated", msg => {
   fetchGlobals();
   interface.draw();
 });
-socket.addEventListener("progress cards updated", ()=> fetchProgressCards())
+socket.addEventListener("progress cards updated", () => fetchProgressCards());
 socket.addEventListener("current player updated", () => fetchCurrentPlayer());
 socket.addEventListener("market updated", () => fetchMarket());
 socket.addEventListener("new move", move => {
@@ -86,14 +86,14 @@ const fetchResources = () => {
       .then(() => interface.draw());
   });
 };
-const fetchProgressCards = ()=>{
+const fetchProgressCards = () => {
   players.forEach((player, playerIndex) => {
     fetch(`/progress/${playerIndex}`)
-    .then(res => res.json())
-    .then(res => player.progressCards = res.progressCards)
-    .then(()=>interface.draw())
-  })
-}
+      .then(res => res.json())
+      .then(res => (player.progressCards = res.progressCards))
+      .then(() => interface.draw());
+  });
+};
 const fetchBoard = () => {
   fetch("/board")
     .then(res => res.json())

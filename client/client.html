@@ -9,21 +9,119 @@
         margin: 0;
         min-height: 100vh;
         display: flex;
-        align-items: center;
-        justify-content: center;
+        align-items: flex-start;
+        justify-content: space-evenly;
         flex-wrap: wrap;
       }
       canvas {
         border: 2px solid black;
       }
+      .game-wrapper {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-start;
+      }
       input {
         width: 140px;
+      }
+      .box-green {
+        width: 50px;
+        height: 50px;
+        background-color: green;
+        border: 1px solid black;
+      }
+      .box-lime {
+        width: 50px;
+        height: 50px;
+        background-color: lime;
+        border: 1px solid black;
+      }
+      .box-brown {
+        width: 50px;
+        height: 50px;
+        background-color: brown;
+        border: 1px solid black;
+      }
+      .box-gray {
+        width: 50px;
+        height: 50px;
+        background-color: gray;
+        border: 1px solid black;
+      }
+      .box-yellow {
+        width: 50px;
+        height: 50px;
+        background-color: yellow;
+        border: 1px solid black;
+      }
+      ul {
+        list-style: none;
+      }
+      li div {
+        display: flex;
+        justify-content: space-between;
+      }
+      .boxes {
+        display: flex;
+      }
+      .info-wrapper {
+        flex-basis: 40%;
       }
     </style>
   </head>
   <body>
-    <input type="number" name="" id="myPlayer" value="1" />
-    <canvas></canvas>
+    <div class="game-wrapper">
+      <input type="number" name="" id="myPlayer" value="1" />
+      <canvas></canvas>
+    </div>
+    <div class="info-wrapper">
+      <h1>Costs:</h1>
+      <ul>
+        <li>
+          <div>
+            <h2>Settlement (1vp)</h2>
+            <div class="boxes">
+              <div class="box-green"></div>
+              <div class="box-lime"></div>
+              <div class="box-brown"></div>
+              <div class="box-yellow"></div>
+            </div>
+          </div>
+        </li>
+        <li>
+          <div>
+            <h2>Road(0vp)</h2>
+            <div class="boxes">
+              <div class="box-green"></div>
+              <div class="box-brown"></div>
+            </div>
+          </div>
+        </li>
+        <li>
+          <div>
+            <h2>City(2vp)</h2>
+            <div class="boxes">
+              <div class="box-yellow"></div>
+              <div class="box-yellow"></div>
+              <div class="box-gray"></div>
+              <div class="box-gray"></div>
+              <div class="box-gray"></div>
+            </div>
+          </div>
+        </li>
+        <li>
+          <div>
+            <h2>Progress card(?)</h2>
+            <div class="boxes">
+              <div class="box-lime"></div>
+              <div class="box-gray"></div>
+              <div class="box-yellow"></div>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
     <script src="/socket.io/socket.io.js"></script>
     <script src="circular-json.js"></script>
     <script src="Node.js"></script>

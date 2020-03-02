@@ -145,7 +145,7 @@ class Player {
       node.neighbours.forEach(neighbour => {
         visitNeighbours(node, node, neighbour, 1);
       });
-      if (node.visitedNodes === node) node.longestPath = 1;
+      if (node.visitedNodes.length === 1) node.longestPath = 1;
       node.visitedNodes = [];
       if (node.longestPath > longest) {
         longest = node.longestPath;

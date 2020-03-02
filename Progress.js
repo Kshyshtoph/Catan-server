@@ -4,9 +4,9 @@ class Progress {
       type: this.generateCard(),
       age: currentRound
     });
-    currentPlayer.resources[1] -= 1;
-    currentPlayer.resources[3] -= 1;
-    currentPlayer.resources[4] -= 1;
+    players[activePlayerIndex].resources[1] -= 1;
+    players[activePlayerIndex].resources[3] -= 1;
+    players[activePlayerIndex].resources[4] -= 1;
     io.emit("resources updated");
     io.emit("progress cards updated");
   };
@@ -15,29 +15,29 @@ class Progress {
       case 1:
         if (card.age < currentRound) {
           board.thief.isSet = false;
-          currentPlayer.progressCards.splice(i, 1);
-          currentPlayer.knightsPlayed++;
+          players[activePlayerIndex].progressCards.splice(i, 1);
+          players[activePlayerIndex].knightsPlayed++;
         }
         break;
       case 2:
-        currentPlayer.victoryPoints++;
-        currentPlayer.progressCards.splice(i, 1);
+        players[activePlayerIndex].victoryPoints++;
+        players[activePlayerIndex].progressCards.splice(i, 1);
         break;
       case 3:
         if (card.age < currentRound) {
-          currentPlayer.progressCards.splice(i, 1);
+          players[activePlayerIndex].progressCards.splice(i, 1);
         }
         break;
       case 4:
         if (card.age < currentRound) {
-          currentPlayer.freeRoads = 2;
-          currentPlayer.progressCards.splice(i, 1);
+          players[activePlayerIndex].freeRoads = 2;
+          players[activePlayerIndex].progressCards.splice(i, 1);
         }
         break;
       case 5:
         if (card.age < currentRound) {
-          currentPlayer.freeResources = 2;
-          currentPlayer.progressCards.splice(i, 1);
+          players[activePlayerIndex].freeResources = 2;
+          players[activePlayerIndex].progressCards.splice(i, 1);
         }
         break;
     }
@@ -61,7 +61,7 @@ class Progress {
     io.emit("resources updated");
   };
   handleInvention = i => {
-    if (currentPlayer.freeResources > 0) {
+    if (players[activePlayerIndex].freeResources > 0) {
       players[activePlayerIndex].resources[i] += 1;
       players[activePlayerIndex].freeResources--;
       io.emit("resources updated");

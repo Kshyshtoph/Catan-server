@@ -207,6 +207,7 @@ class Market {
     this.demands = [0, 0, 0, 0, 0];
     this.dealWith = "otherPlayer";
     currentPlayer = players[this.tradingPlayerIndex];
+    sendMarket();
   };
   handleTrade = () => {
     if (this.dealWith === "otherPlayer") {

@@ -25,7 +25,7 @@ global.diceResult = 0;
 global.activePlayerIndex = 0;
 global.progress = new Progress();
 global.currentPlayer = players[activePlayerIndex];
-const interface = new Interface(currentPlayer, board);
+const interface = new Interface(players[activePlayerIndex], board);
 let move = {};
 // app.configure(function() {
 //   app.use(app.router);
@@ -50,14 +50,13 @@ app.put("/card", (req, res) => {
   res.send("ok");
 });
 app.get("/monopoly/:i", (req, res) => {
-  progress.handleMonopoly(req, params.i);
   res.send("ok");
+  progress.handleMonopoly(req.params.i);
 });
-app.get("/invention/:i"),
-  (req, res) => {
-    progress.handleInvention(req.params.i);
-    res.send("ok");
-  };
+app.get("/invention/:i", (req, res) => {
+  res.send("ok");
+  progress.handleInvention(req.params.i);
+});
 app.put("/progress", (req, res) => {
   players[req.body.playerIndex].progressCards.push({
     type: progress.generateCard(),
@@ -115,7 +114,7 @@ app.put("/thief", (req, res) => {
 });
 app.get("/currentPlayer", (req, res) => {
   const currentPlayerIndex = players.findIndex(
-    player => player === currentPlayer
+    player => player === players[activePlayerIndex]
   );
   res.send(JSON.stringify({ currentPlayerIndex }));
 });

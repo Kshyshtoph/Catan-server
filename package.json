@@ -1,17 +1,23 @@
 {
   "name": "osadnicy-serwer",
+  "config": {
+    "port": "3000"
+  },
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "main.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node ./main.js"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "body-parser": "^1.19.0",
     "circular-json": "file:circular-json",
     "express": "^4.17.1",
     "socket.io": "^2.3.0"
+  },
+  "engines": {
+    "node": "12.16.0"
   }
 }
