@@ -26,7 +26,7 @@ class Marker {
         );
       }
     } else if (
-      this.canBuild.includes(currentPlayer.colour) &&
+      this.canBuild.includes(currentPlayer.color) &&
       !this.taken &&
       currentPlayer.canAffordSettlement()
     ) {
@@ -50,7 +50,7 @@ class RoadMarker extends Marker {
   draw = () => {
     if (
       !this.taken &&
-      this.canBuild.includes(currentPlayer.colour) &&
+      this.canBuild.includes(currentPlayer.color) &&
       (currentPlayer.freeRoads > 0 || currentPlayer.canAffordRoad())
     ) {
       ctx.fillStyle = "blue";
