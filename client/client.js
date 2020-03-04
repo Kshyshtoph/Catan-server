@@ -100,7 +100,7 @@ const fetchBoard = () => {
     .then(res => {
       res.hexes.forEach((hex, index) => {
         board.hexes[index] = new Hex(
-          [hex.colour],
+          [hex.color],
           hex.id,
           [hex.number],
           hex.location,
@@ -147,7 +147,7 @@ const fetchPlayers = () => {
     .then(res => {
       res.players.forEach((player, index) => {
         players[index].meeples.forEach((meeple, index) => {
-          meeple.colour = player.colour;
+          meeple.color = player.color;
           meeple.inPlay = player.meeples[index].inPlay;
           meeple.id = player.meeples[index].id;
           meeple.type = player.meeples[index].type;
@@ -190,6 +190,7 @@ const fetchGlobals = () => {
       } else {
         board.hexes.forEach(hex => hex.payResources());
       }
+      if (res.activePlayerIndex === myPlayer) alert("it's your turn");
       interface.player = players[myPlayer];
       interface.draw();
     });
@@ -223,6 +224,7 @@ myPlayerInput.addEventListener("change", e => {
   myPlayer = e.target.value - 1;
   players[myPlayer].drawMeeples();
   interface.player = players[myPlayer];
+  interface.draw();
 });
 interface.draw();
 canvas.addEventListener("click", interface.handleClick);

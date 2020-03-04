@@ -1,6 +1,6 @@
 class Hex {
-  constructor(colour, id, number, location, y, radius) {
-    this.colour = colour[0];
+  constructor(color, id, number, location, y, radius) {
+    this.color = color[0];
     this.id = id;
     this.number = number ? number[0] : "";
     this.location = location;
@@ -70,7 +70,7 @@ class Hex {
   };
   draw = () => {
     const numberOfEdges = 6;
-    ctx.fillStyle = this.colour;
+    ctx.fillStyle = this.color;
     ctx.beginPath();
     ctx.moveTo(this.x + this.radius, this.y);
     ctx.font = "30px Arial";
@@ -103,17 +103,17 @@ class Hex {
       diceResult === this.number &&
       !(this.x === board.thief.x && this.y === board.thief.y)
     ) {
-      switch (this.colour) {
+      switch (this.color) {
         case "green":
           this.buildingMarkers.forEach(marker => {
             if (marker.ocupation) {
               players.find(
-                player => player.colour === marker.ocupation
+                player => player.color === marker.ocupation
               ).resources[0] += 1;
             }
             if (marker.city) {
               players.find(
-                player => player.colour === marker.ocupation
+                player => player.color === marker.ocupation
               ).resources[0] += 1;
             }
           });
@@ -122,12 +122,12 @@ class Hex {
           this.buildingMarkers.forEach(marker => {
             if (marker.ocupation) {
               players.find(
-                player => player.colour === marker.ocupation
+                player => player.color === marker.ocupation
               ).resources[1] += 1;
             }
             if (marker.city) {
               players.find(
-                player => player.colour === marker.ocupation
+                player => player.color === marker.ocupation
               ).resources[1] += 1;
             }
           });
@@ -136,12 +136,12 @@ class Hex {
           this.buildingMarkers.forEach(marker => {
             if (marker.ocupation) {
               players.find(
-                player => player.colour === marker.ocupation
+                player => player.color === marker.ocupation
               ).resources[2] += 1;
             }
             if (marker.city) {
               players.find(
-                player => player.colour === marker.ocupation
+                player => player.color === marker.ocupation
               ).resources[2] += 1;
             }
           });
@@ -150,12 +150,12 @@ class Hex {
           this.buildingMarkers.forEach(marker => {
             if (marker.ocupation) {
               players.find(
-                player => player.colour === marker.ocupation
+                player => player.color === marker.ocupation
               ).resources[3] += 1;
             }
             if (marker.city) {
               players.find(
-                player => player.colour === marker.ocupation
+                player => player.color === marker.ocupation
               ).resources[3] += 1;
             }
           });
@@ -164,12 +164,12 @@ class Hex {
           this.buildingMarkers.forEach(marker => {
             if (marker.ocupation) {
               players.find(
-                player => player.colour === marker.ocupation
+                player => player.color === marker.ocupation
               ).resources[4] += 1;
             }
             if (marker.city) {
               players.find(
-                player => player.colour === marker.ocupation
+                player => player.color === marker.ocupation
               ).resources[4] += 1;
             }
           });

@@ -1,7 +1,7 @@
 class Board {
   constructor(boardRadius, hexRadius) {
     this.numbers = [];
-    this.colours = [
+    this.colors = [
       "lime",
       "lime",
       "lime",
@@ -53,18 +53,18 @@ class Board {
         grow = -1;
       }
       for (let j = 1; j <= count; j++) {
-        const colour = this.colours.splice(
-          Math.floor(Math.random() * this.colours.length),
+        const color = this.colors.splice(
+          Math.floor(Math.random() * this.colors.length),
           1
         );
-        if (colour[0] === "burlywood") {
+        if (color[0] === "burlywood") {
           this.thief.x = ((i * 3) / 2) * hexRadius;
           this.thief.y =
             j * this.hexHeight + ((diagonal - count) / 2) * this.hexHeight;
           this.thief.isSet = true;
         }
         const number =
-          colour[0] !== "burlywood"
+          color[0] !== "burlywood"
             ? this.numbers.splice(
                 Math.floor(Math.random() * this.numbers.length),
                 1
@@ -72,7 +72,7 @@ class Board {
             : null;
         this.hexes.push(
           new Hex(
-            colour,
+            color,
             currentId,
             number,
             [i, j],

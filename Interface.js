@@ -22,7 +22,7 @@ class Interface {
         ) {
           marker.taken = true;
           settlementBuilt = true;
-          marker.ocupation = this.player.colour;
+          marker.ocupation = this.player.color;
           this.board.hexes.forEach(hex => {
             hex.buildingMarkers.forEach(m => {
               if (
@@ -34,7 +34,7 @@ class Interface {
                 m.taken = true;
               }
               if (m.x === marker.x && m.y === marker.y) {
-                m.ocupation = this.player.colour;
+                m.ocupation = this.player.color;
               }
             });
             hex.roadMarkers.forEach(m => {
@@ -44,7 +44,7 @@ class Interface {
                 m.y > marker.y - 50 &&
                 m.y < marker.y + 50
               ) {
-                m.canBuild.push(this.player.colour);
+                m.canBuild.push(this.player.color);
               }
             });
           });
@@ -93,7 +93,7 @@ class Interface {
           activeMeeple.direction = marker.direction;
           marker.taken = true;
           roadBuilt = true;
-          marker.ocupation = this.player.colour;
+          marker.ocupation = this.player.color;
           this.board.hexes.forEach(hex => {
             hex.roadMarkers.forEach(m => {
               if (
@@ -103,7 +103,7 @@ class Interface {
                 m.y < marker.y + hexRadius + 5
               ) {
                 m.active = true;
-                m.canBuild.push(this.player.colour);
+                m.canBuild.push(this.player.color);
                 activeMeeple.neighbours.push(m);
               }
             });
@@ -114,7 +114,7 @@ class Interface {
                 m.y > marker.y - hexRadius &&
                 m.y < marker.y + hexRadius
               )
-                m.canBuild.push(this.player.colour);
+                m.canBuild.push(this.player.color);
             });
           });
         }

@@ -3,8 +3,8 @@ const City = require("./Meeples").City;
 const Road = require("./Meeples").Road;
 const Node = require("./Node").Node;
 class Player {
-  constructor(colour) {
-    this.colour = colour;
+  constructor(color) {
+    this.color = color;
     this.meeples = [];
     this.freeSettlement = true;
     this.freeRoads = 1;
@@ -45,9 +45,9 @@ class Player {
   drawResources() {
     ctx.font = "30px Arial";
     ctx.strokeStyle = "black";
-    const colours = ["green", "lime", "brown", "gray", "yellow"];
-    colours.forEach((colour, i) => {
-      ctx.fillStyle = colour;
+    const colors = ["green", "lime", "brown", "gray", "yellow"];
+    colors.forEach((color, i) => {
+      ctx.fillStyle = color;
       ctx.fillRect(i * 60 + 10, 500, 50, 75);
       ctx.strokeRect(i * 60 + 10, 500, 50, 75);
       ctx.fillStyle = "black";

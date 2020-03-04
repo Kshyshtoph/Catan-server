@@ -1,6 +1,6 @@
 class Settlement {
   constructor(player, id) {
-    this.colour = player.colour;
+    this.color = player.color;
     this.inPlay = false;
     this.id = id;
     this.type = "settlement";
@@ -12,14 +12,6 @@ class Settlement {
     this.initialY = this.y;
     this.active = false;
   }
-  draw = () => {
-    if (this.active && !this.inPlay) {
-      ctx.fillStyle = "black";
-      ctx.fillRect(this.x - 2, this.y - 2, this.width + 4, this.height + 4);
-    }
-    ctx.fillStyle = this.colour;
-    ctx.fillRect(this.x, this.y, this.width, this.height);
-  };
 }
 class City extends Settlement {
   constructor(player, id) {
@@ -28,35 +20,10 @@ class City extends Settlement {
     this.type = "city";
     this.y = this.id * 40 + 25;
   }
-  draw = () => {
-    ctx.beginPath();
-    if (this.active && !this.inPlay) {
-      ctx.fillStyle = "black";
-      ctx.arc(
-        550,
-        this.y + this.height / 2,
-        this.width / 2 + 2,
-        0,
-        2 * Math.PI
-      );
-
-      ctx.fill();
-    }
-    ctx.beginPath();
-    ctx.fillStyle = this.colour;
-    ctx.arc(
-      this.x + this.width / 2,
-      this.y + this.height / 2,
-      this.width / 2,
-      0,
-      2 * Math.PI
-    );
-    ctx.fill();
-  };
 }
 class Road {
   constructor(player, id) {
-    this.colour = player.colour;
+    this.color = player.color;
     this.neighbours = [];
     this.inPlay = false;
     this.type = "road";
@@ -68,27 +35,6 @@ class Road {
     this.active = false;
     this.direction = 20;
   }
-  draw = () => {
-    if (this.active) {
-      ctx.fillStyle = "black";
-      ctx.translate(this.x + this.width / 2, this.y + this.height / 2);
-      ctx.rotate((this.direction * Math.PI) / 180);
-      ctx.fillRect(
-        -this.width / 2 - 2,
-        -this.height / 2 - 2,
-        this.width + 4,
-        this.height + 4
-      );
-      ctx.rotate((-this.direction * Math.PI) / 180);
-      ctx.translate(-this.x - this.width / 2, -this.y - this.height / 2);
-    }
-    ctx.fillStyle = this.colour;
-    ctx.translate(this.x + this.width / 2, this.y + this.height / 2);
-    ctx.rotate((this.direction * Math.PI) / 180);
-    ctx.fillRect(-this.width / 2, -this.height / 2, this.width, this.height);
-    ctx.rotate((-this.direction * Math.PI) / 180);
-    ctx.translate(-this.x - this.width / 2, -this.y - this.height / 2);
-  };
 }
 module.exports = {
   Settlement: Settlement,

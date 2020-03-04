@@ -37,24 +37,12 @@ class Thief {
         e.offsetY < 275
       ) {
         const steal = players.findIndex(
-          player => player.colour === this.stealFrom[i]
+          player => player.color === this.stealFrom[i]
         );
         this.active = false;
         sendThief(steal);
         this.stealFrom = [];
       }
     }
-  };
-  handleStealing = (steal, stealPlayerIndex) => {
-    const stealIndexes = [];
-    for (let i = 0; i < steal.resources.length; i++) {
-      if (steal.resources[i] > 0) {
-        stealIndexes.push(i);
-      }
-    }
-    if (this.stealIndexes === []) return;
-    const stealIndex = Math.floor(Math.random() * stealIndexes.length);
-    steal.resources[stealIndexes[stealIndex]] -= 1;
-    currentPlayer.resources[stealIndexes[stealIndex]] += 1;
   };
 }

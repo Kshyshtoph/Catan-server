@@ -52,7 +52,7 @@ class Interface {
   };
   handleClick = e => {
     if (
-      currentPlayer.colour === players[myPlayer].colour ||
+      currentPlayer.color === players[myPlayer].color ||
       (market.activePlayerIndex === myPlayer && market.active)
     ) {
       if (
@@ -111,7 +111,7 @@ class Interface {
             activeMeeple.active = false;
             marker.taken = true;
             settlementBuilt = true;
-            marker.ocupation = currentPlayer.colour;
+            marker.ocupation = currentPlayer.color;
             if (!this.player.freeSettlement) {
               this.player.resources[0] -= 1;
               this.player.resources[2] -= 1;
@@ -122,7 +122,7 @@ class Interface {
             board.hexes.forEach(hex => {
               hex.buildingMarkers.forEach(m => {
                 if (m.x === marker.x && m.y === marker.y) {
-                  m.ocupation = currentPlayer.colour;
+                  m.ocupation = currentPlayer.color;
                 }
                 if (
                   m.x > marker.x - 50 - 5 &&
@@ -140,7 +140,7 @@ class Interface {
                   m.y > marker.y - 50 &&
                   m.y < marker.y + 50
                 ) {
-                  m.canBuild.push(this.player.colour);
+                  m.canBuild.push(this.player.color);
                 }
               });
             });
@@ -192,7 +192,7 @@ class Interface {
             e.offsetY > y - height / 2 &&
             e.offsetY < y + height / 2 &&
             !marker.taken &&
-            marker.canBuild.includes(this.player.colour)
+            marker.canBuild.includes(this.player.color)
           ) {
             activeMeeple.x = x - activeMeeple.width / 2;
             activeMeeple.y = y - activeMeeple.height / 2;
@@ -200,7 +200,7 @@ class Interface {
             activeMeeple.active = false;
             activeMeeple.direction = marker.direction;
             marker.taken = true;
-            marker.ocupation = this.player.colour;
+            marker.ocupation = this.player.color;
             roadBuilt = true;
             board.hexes.forEach(hex => {
               hex.roadMarkers.forEach(m => {
@@ -211,7 +211,7 @@ class Interface {
                   m.y < marker.y + 50 + 5
                 ) {
                   m.active = true;
-                  m.canBuild.push(this.player.colour);
+                  m.canBuild.push(this.player.color);
                 }
               });
               hex.buildingMarkers.forEach(m => {
@@ -221,7 +221,7 @@ class Interface {
                   m.y > marker.y - 50 &&
                   m.y < marker.y + 50
                 )
-                  m.canBuild.push(this.player.colour);
+                  m.canBuild.push(this.player.color);
               });
             });
           }
@@ -372,7 +372,7 @@ class Interface {
         if (
           marker.ocupation &&
           !board.thief.stealFrom.includes(marker.ocupation) &&
-          marker.ocupation !== this.player.colour
+          marker.ocupation !== this.player.color
         ) {
           board.thief.stealFrom.push(marker.ocupation);
         }
@@ -391,7 +391,7 @@ class Interface {
   drawCurrentPlayer = () => {
     ctx.fillStyle = "black";
     ctx.font = "30px arial";
-    ctx.fillText("current player: " + currentPlayer.colour, 100, 30);
+    ctx.fillText("current player: " + currentPlayer.color, 100, 30);
   };
   handleSettlementBuild2 = moveMeeple => {
     const activeMeeple = this.player.meeples.find(
@@ -409,7 +409,7 @@ class Interface {
         ) {
           marker.taken = true;
           settlementBuilt = true;
-          marker.ocupation = this.player.colour;
+          marker.ocupation = this.player.color;
           board.hexes.forEach(hex => {
             hex.buildingMarkers.forEach(m => {
               if (
@@ -421,7 +421,7 @@ class Interface {
                 m.taken = true;
               }
               if (m.x === marker.x && m.y === marker.y) {
-                m.ocupation = this.player.colour;
+                m.ocupation = this.player.color;
               }
             });
             hex.roadMarkers.forEach(m => {
@@ -431,7 +431,7 @@ class Interface {
                 m.y > marker.y - 50 &&
                 m.y < marker.y + 50
               ) {
-                m.canBuild.push(this.player.colour);
+                m.canBuild.push(this.player.color);
               }
             });
           });
@@ -461,7 +461,7 @@ class Interface {
           activeMeeple.direction = marker.direction;
           marker.taken = true;
           roadBuilt = true;
-          marker.ocupation = this.player.colour;
+          marker.ocupation = this.player.color;
           board.hexes.forEach(hex => {
             hex.roadMarkers.forEach(m => {
               if (
@@ -471,7 +471,7 @@ class Interface {
                 m.y < marker.y + hexRadius + 5
               ) {
                 m.active = true;
-                m.canBuild.push(this.player.colour);
+                m.canBuild.push(this.player.color);
                 activeMeeple.neighbours.push(m);
               }
             });
@@ -482,7 +482,7 @@ class Interface {
                 m.y > marker.y - hexRadius &&
                 m.y < marker.y + hexRadius
               )
-                m.canBuild.push(this.player.colour);
+                m.canBuild.push(this.player.color);
             });
           });
         }

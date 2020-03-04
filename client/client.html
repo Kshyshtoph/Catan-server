@@ -12,6 +12,7 @@
         align-items: flex-start;
         justify-content: space-evenly;
         flex-wrap: wrap;
+        font-family: Arial, Helvetica, sans-serif;
       }
       canvas {
         border: 2px solid black;
@@ -19,7 +20,7 @@
       .game-wrapper {
         display: flex;
         flex-direction: column;
-        align-items: flex-start;
+        align-items: center;
         justify-content: flex-start;
       }
       input {
@@ -72,7 +73,7 @@
   </head>
   <body>
     <div class="game-wrapper">
-      <input type="number" name="" id="myPlayer" value="1" />
+      <input type="number" name="" id="myPlayer" value="1" max="2" />
       <canvas></canvas>
     </div>
     <div class="info-wrapper">
@@ -102,11 +103,11 @@
           <div>
             <h2>City(2vp)</h2>
             <div class="boxes">
+              <div class="box-gray"></div>
+              <div class="box-gray"></div>
+              <div class="box-gray"></div>
               <div class="box-yellow"></div>
               <div class="box-yellow"></div>
-              <div class="box-gray"></div>
-              <div class="box-gray"></div>
-              <div class="box-gray"></div>
             </div>
           </div>
         </li>

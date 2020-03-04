@@ -1,6 +1,6 @@
 class Settlement {
   constructor(player, id) {
-    this.colour = player.colour;
+    this.color = player.color;
     this.inPlay = false;
     this.id = id;
     this.type = "settlement";
@@ -17,7 +17,7 @@ class Settlement {
       ctx.fillStyle = "black";
       ctx.fillRect(this.x - 2, this.y - 2, this.width + 4, this.height + 4);
     }
-    ctx.fillStyle = this.colour;
+    ctx.fillStyle = this.color;
     ctx.fillRect(this.x, this.y, this.width, this.height);
   };
 }
@@ -43,7 +43,7 @@ class City extends Settlement {
       ctx.fill();
     }
     ctx.beginPath();
-    ctx.fillStyle = this.colour;
+    ctx.fillStyle = this.color;
     ctx.arc(
       this.x + this.width / 2,
       this.y + this.height / 2,
@@ -56,7 +56,7 @@ class City extends Settlement {
 }
 class Road {
   constructor(player, id) {
-    this.colour = player.colour;
+    this.color = player.color;
     this.neighbours = [];
     this.inPlay = false;
     this.type = "road";
@@ -82,7 +82,7 @@ class Road {
       ctx.rotate((-this.direction * Math.PI) / 180);
       ctx.translate(-this.x - this.width / 2, -this.y - this.height / 2);
     }
-    ctx.fillStyle = this.colour;
+    ctx.fillStyle = this.color;
     ctx.translate(this.x + this.width / 2, this.y + this.height / 2);
     ctx.rotate((this.direction * Math.PI) / 180);
     ctx.fillRect(-this.width / 2, -this.height / 2, this.width, this.height);
