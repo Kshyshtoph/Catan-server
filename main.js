@@ -10,7 +10,7 @@ const Market = require("./Market").Market;
 const Progress = require("./Progress").Progress;
 const Interface = require("./Interface").Interface;
 const CircularJSON = require("circular-json");
-const port = 3000;
+const port = 3001;
 global.market = new Market();
 global.board = new Board(3, 50);
 board.pushNubers();
@@ -180,5 +180,5 @@ app.post("/move", (req, res) => {
 });
 
 http.listen(port, "0.0.0.0", () => {
-  console.log("server is listening at port 3000");
+  console.log("server is listening at port " + port);
 });

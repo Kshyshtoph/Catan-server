@@ -188,7 +188,7 @@ const fetchGlobals = () => {
         board.thief.x = 25;
         board.thief.y = 25;
       } else {
-        board.hexes.forEach(hex => hex.payResources());
+        fetchResources()
       }
       if (res.activePlayerIndex === myPlayer) alert("it's your turn");
       interface.player = players[myPlayer];
